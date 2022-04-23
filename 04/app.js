@@ -9,6 +9,7 @@ const menuItems = [
 
 const liItems = 3 // number of li items in ul
 
+/*
 // ------------ Without structure above -------------------
 // ----------------- Creating ul --------------------------
 const navSection = document.querySelector('nav')
@@ -51,8 +52,24 @@ aSection[1].setAttribute('href', '/gallery')
 aSection[2].innerText = 'contact'
 aSection[2].setAttribute('href', '/contact')
 // --------------------------------------------------------
+*/
 
 // ------------- With structure above ---------------------
+const navSection = document.querySelector('nav')
 const text2 = document.createTextNode('With structure:')
-document.body.insertBefore(text2, null)
+document.body.insertBefore(text2, navSection)
 
+const ul = document.createElement('ul')
+navSection.insertBefore(ul, null)
+
+menuItems.forEach(function (item) {
+    const li = document.createElement('li')
+    const a = document.createElement('a')
+
+    li.appendChild(a)
+    ul.appendChild(li)
+
+    a.innerText = item.text
+    a.href = item.url
+
+})
